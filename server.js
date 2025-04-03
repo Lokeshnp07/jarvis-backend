@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
-
+console.log("OpenAI API Key:", process.env.OPENAI_API_KEY ? "Loaded" : "Missing");
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 app.post('/command', async (req, res) => {
@@ -23,6 +23,7 @@ app.post('/command', async (req, res) => {
 
         const responseText = aiResponse.choices[0]?.message?.content || "I didn't understand that.";
         res.json({ message: responseText });
+        console.log("Rsponse::",responseText);
 
     } catch (error) {
         console.error("AI processing error:", error);
