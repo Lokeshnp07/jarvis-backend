@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 
 // Load Dialogflow credentials
 const CREDENTIALS_PATH = "/etc/secrets/dialogflow-key.json";
+console.log("first");
 const credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH));
 
 const sessionClient = new dialogflow.SessionsClient({ credentials });
