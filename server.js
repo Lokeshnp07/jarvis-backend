@@ -13,7 +13,8 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Load Dialogflow credentials
-const CREDENTIALS_PATH = path.join(__dirname, "apiKey", "dialogflow-key.json");
+// const CREDENTIALS_PATH = path.join(__dirname, "apiKey", "dialogflow-key.json");
+const CREDENTIALS_PATH = "/etc/secrets/dialogflow-key.json";
 const credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH));
 const sessionClient = new dialogflow.SessionsClient({ credentials });
 
